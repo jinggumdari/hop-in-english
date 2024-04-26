@@ -1,4 +1,8 @@
+import 'package:english_helper/common/main_navigation/widgets/nav_tab.dart';
+import 'package:english_helper/main_screen/view/main_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:go_router/go_router.dart';
 
 class MainNavigationScreen extends StatefulWidget {
   static const String routeName = "main-navigation";
@@ -14,7 +18,14 @@ class MainNavigationScreen extends StatefulWidget {
 class _MainNavigationScreenState extends State<MainNavigationScreen> {
   final List<String> _tabs = ["home", "discover", "calendar"];
 
-  late final int _selectedIndex = _tabs.indexOf(widget.tab);
+  late int _selectedIndex = _tabs.indexOf(widget.tab);
+
+  void _onTap(int index) {
+    context.go("/${_tabs[index]}");
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +34,7 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
         children: [
           Offstage(
             offstage: _selectedIndex != 0,
-            child: Container(color: Colors.red),
+            child: const MainScreen(),
           ),
           Offstage(
             offstage: _selectedIndex != 1,
@@ -33,15 +44,43 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
             offstage: _selectedIndex != 2,
             child: Container(color: Colors.green),
           ),
-          Offstage(
-            offstage: _selectedIndex != 3,
-            child: Container(color: Colors.blue),
-          ),
-          Offstage(
-            offstage: _selectedIndex != 4,
-            child: Container(color: Colors.purple),
-          ),
         ],
+      ),
+      bottomNavigationBar: BottomAppBar(
+        height: 84,
+        child: Padding(
+          padding: const EdgeInsets.only(top: 8),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              NavTab(
+                text: "Home",
+                isSelected: _selectedIndex == 0,
+                icon: FontAwesomeIcons.house,
+                selectedIcon: FontAwesomeIcons.house,
+                onTap: () => _onTap(0),
+                selectedTabIndex: _selectedIndex,
+              ),
+              NavTab(
+                text: "Discover",
+                isSelected: _selectedIndex == 1,
+                icon: FontAwesomeIcons.compass,
+                selectedIcon: FontAwesomeIcons.solidCompass,
+                onTap: () => _onTap(1),
+                selectedTabIndex: _selectedIndex,
+              ),
+              NavTab(
+                text: "Calendar",
+                isSelected: _selectedIndex == 2,
+                icon: FontAwesomeIcons.message,
+                selectedIcon: FontAwesomeIcons.solidMessage,
+                onTap: () => _onTap(2),
+                selectedTabIndex: _selectedIndex,
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }

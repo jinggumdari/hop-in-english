@@ -18,7 +18,7 @@ final routerProvider = Provider(
           ),
         ),
         GoRoute(
-          path: "/:tab(home|discover|inbox|profile)",
+          path: "/:tab(home|discover|calendar)",
           name: MainNavigationScreen.routeName,
           builder: (context, state) {
             final tab = state.params['tab'] ?? 'home';

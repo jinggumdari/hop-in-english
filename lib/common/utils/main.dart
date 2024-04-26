@@ -1,4 +1,5 @@
-import 'package:english_helper/router.dart';
+import 'package:english_helper/common/utils/router.dart';
+import 'package:english_helper/common/utils/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -32,9 +33,8 @@ class HopInEnglish extends ConsumerWidget {
       routerConfig: ref.watch(routerProvider),
       title: 'Matcher App',
       themeMode: ThemeMode.system,
-      // theme: lightTheme,
-      // darkTheme: darkTheme,
-      // home: const MainNavigationScreen(),
+      theme: lightTheme,
+      darkTheme: darkTheme,
     );
   }
 }
