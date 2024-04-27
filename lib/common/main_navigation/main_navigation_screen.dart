@@ -1,5 +1,6 @@
 import 'package:english_helper/common/main_navigation/widgets/nav_tab.dart';
-import 'package:english_helper/main_screen/view/main_screen.dart';
+import 'package:english_helper/discover/discover_screen.dart';
+import 'package:english_helper/main/view/main_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
@@ -38,7 +39,7 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
           ),
           Offstage(
             offstage: _selectedIndex != 1,
-            child: Container(color: Colors.amber),
+            child: const DiscoverScreen(),
           ),
           Offstage(
             offstage: _selectedIndex != 2,

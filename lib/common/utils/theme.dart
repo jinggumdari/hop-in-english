@@ -34,7 +34,7 @@ final TextTheme textTheme = TextTheme(
 
 ColorScheme lightColorScheme = ColorScheme(
   brightness: Brightness.light,
-  primary: const Color(0xFF097D4C), // a darker version of the primary color
+  primary: const Color(0x00b37dd3), // a darker version of the primary color
   primaryContainer: Colors.white,
 
   secondary: const Color(0xFFC2185B), // a darker version of the secondary color
@@ -53,7 +53,7 @@ ColorScheme lightColorScheme = ColorScheme(
 
 ColorScheme darkColorScheme = ColorScheme(
   brightness: Brightness.dark,
-  primary: const Color(0xFF097D4C), // primary color of your app
+  primary: const Color(0x00b37dd3), // primary color of your app
   primaryContainer: Colors.black,
   secondary:
       const Color(0xFFC2185B), // secondary color used for interactive elements

@@ -8,15 +8,15 @@ final routerProvider = Provider(
     return GoRouter(
       initialLocation: "/home",
       routes: [
-        GoRoute(
-          name: '/',
-          path: '/',
-          builder: (context, state) => const Scaffold(
-            body: Center(
-              child: Text('Home'),
-            ),
-          ),
-        ),
+        // GoRoute(
+        //   name: '/',
+        //   path: '/',
+        //   builder: (context, state) => const Scaffold(
+        //     body: Center(
+        //       child: Text('Home'),
+        //     ),
+        //   ),
+        // ),
         GoRoute(
           path: "/:tab(home|discover|calendar)",
           name: MainNavigationScreen.routeName,
